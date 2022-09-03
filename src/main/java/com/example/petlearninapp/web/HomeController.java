@@ -23,7 +23,7 @@ public class HomeController {
     }
 
     @GetMapping
-    public String homePage(Model model, Authentication authentication) {
+    public String homePage(Model model) {
         model.addAttribute("bodyContent", "HomePage");
         model.addAttribute("courses", this.courseService.findAllCourses());
         return "Master-Template";
