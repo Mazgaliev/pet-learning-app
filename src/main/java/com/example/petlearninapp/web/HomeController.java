@@ -24,6 +24,6 @@ public class HomeController {
 //        this.courseService.findAllCourses();
         model.addAttribute("bodyContent", "HomePage");
 
-        return "HomePage";
+        return "Master-Template";
     }
 }
