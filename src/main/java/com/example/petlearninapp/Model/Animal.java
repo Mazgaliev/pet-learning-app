@@ -1,12 +1,13 @@
 package com.example.petlearninapp.Model;
 
+import lombok.Data;
 import lombok.Getter;
 
 import javax.persistence.*;
 import java.util.List;
 
 @Entity
-@Getter
+@Data
 public class Animal {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
