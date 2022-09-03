@@ -40,4 +40,9 @@ public class CourseServiceImpl implements CourseService {
         courses.add(c);
         this.personRepository.save(p);
     }
+
+    @Override
+    public List<Course> findAllCourses() {
+        return this.courseRepository.findAll();
+    }
 }

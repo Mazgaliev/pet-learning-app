@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Ayo</title>
+</head>
+<body>
+
+<section th:replace="parts/Header"></section>
+
+
+<section th:include="${bodyContent}"></section>
+
+<section th:replace="parts/Footer"></section>
+</body>
+</html>
