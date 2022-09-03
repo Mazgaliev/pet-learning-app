@@ -24,7 +24,14 @@ public class HomeController {
 
     @GetMapping
     public String homePage(Model model, Authentication authentication) {
-        List<Course> courses = this.courseService.findAllCourses();
+        List<Course> courses;
+        try {
+            courses = this.courseService.findAllCourses();
+        } catch (Exception e) {
+            model.addAttribute("ErrorMsg", e.getMessage());
+            model.addAttribute("ErrorCause", e.getCause());
+            return "ErrorTemplate";
+        }
         model.addAttribute("bodyContent", "HomePage");
         model.addAttribute("courses", courses);
         return "Master-Template";
