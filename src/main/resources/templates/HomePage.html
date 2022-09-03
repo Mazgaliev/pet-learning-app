@@ -6,5 +6,10 @@
 </head>
 <body>
 <h1>Degeneration</h1>
+<div th:each="course:${courses}">
+    <h1 th:text="${course.name}">
+
+    </h1>
+</div>
 </body>
 </html>
