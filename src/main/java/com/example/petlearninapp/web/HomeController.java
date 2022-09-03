@@ -28,8 +28,7 @@ public class HomeController {
         try {
             courses = this.courseService.findAllCourses();
         } catch (Exception e) {
-            model.addAttribute("ErrorMsg", e.getMessage());
-            model.addAttribute("ErrorCause", e.getCause());
+
             return "ErrorTemplate";
         }
         model.addAttribute("bodyContent", "HomePage");
