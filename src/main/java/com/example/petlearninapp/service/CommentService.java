@@ -7,5 +7,5 @@ public interface CommentService {
 
     void deleteComment(Long personId);
 
-    void modifyComment(Long personid, Long commentId, String description);
+    void modifyComment(Long commentId, String description);
 }
