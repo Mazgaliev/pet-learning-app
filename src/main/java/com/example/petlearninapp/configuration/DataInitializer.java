@@ -30,10 +30,10 @@ public class DataInitializer {
 
 //    @PostConstruct
     public void initData() {
-        Test t = new Test()
-        for (int i = 2; i < 5; i++) {
-            this.courseService.createCourse("CourseName", "CourseDescription", Long.parseLong(i + ""), lessons);
-        }
+
+//        for (int i = 2; i < 5; i++) {
+//            this.courseService.createCourse("CourseName", "CourseDescription", Long.parseLong(i + ""), lessons);
+//        }
 
     }
 }
