@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<section id="header" class="jumbotron text-center">
+    <h1 class="display-3">Testing</h1>
+</section>
+
+<div class="row">
+    <div th:each="mEntity,row:${ca}">
+        <h2 th:text="${mapEntity.key().getName()}"></h2>
+        <h3 th:text="${mapEntity.key().getDescription()}"></h3>
+    </div>
+</div>
+
+</body>
+</html>

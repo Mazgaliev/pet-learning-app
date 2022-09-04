@@ -5,11 +5,24 @@
     <title>Title</title>
 </head>
 <body>
-<h1>Degeneration</h1>
-<div th:each="course:${courses}">
-    <h1 th:text="${course.name}">
-
-    </h1>
+<section id="header" class="jumbotron text-center">
+    <h1 class="display-3">Welcome</h1>
+    <p class="lead"></p>
+</section>
+<div class="row">
+    <th:block th:each="course:${courses}">
+        <div class="col-sm-3">
+            <div class="card" style="width: 18rem;">
+                <div class="card-body">
+                    <h5 class="card-title" th:text="${course.getCourseName()}"></h5>
+                    <h6 class="card-subtitle mb-2 text-muted" th:text="${course.getAnimal().getName()}"></h6>
+                    <p class="card-text" th:text="${course.getCourseDescription()}"></p>
+                    <a th:href="@{'/course/{id}'(id=${course.getId()})}" class="card-link">View Course</a>
+                </div>
+            </div>
+        </div>
+    </th:block>
 </div>
+
 </body>
 </html>

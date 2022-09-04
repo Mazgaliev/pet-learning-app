@@ -17,14 +17,17 @@ public class Course {
 
     private String courseDescription;
 
-    @OneToMany
+    @OneToMany()
     private List<Lesson> lessons;
 
+    @OneToOne(fetch = FetchType.EAGER)
+    private Animal animal;
 
-    public Course(String courseName, String courseDescription, List<Lesson> lessons) {
+    public Course(String courseName, String courseDescription, List<Lesson> lessons, Animal animal) {
         this.courseName = courseName;
         this.courseDescription = courseDescription;
         this.lessons = lessons;
+        this.animal = animal;
     }
 
     public Course() {

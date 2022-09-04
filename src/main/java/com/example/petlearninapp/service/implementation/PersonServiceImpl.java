@@ -22,11 +22,20 @@ public class PersonServiceImpl implements PersonService {
     public void registerPerson(String name, String surname, String username, String password, String phoneNumber) {
         String encPw = this.passwordEncoder.encode(password);
 
-        this.personRepository.save(new Person(name,username,encPw,surname,phoneNumber));
+        this.personRepository.save(new Person(name, username, encPw, surname, phoneNumber));
     }
 
     @Override
-    public UserDetails loadUserByUsername(String username) {
-        return this.personRepository.findByUsername(username).orElseThrow(() -> new UsernameNotFoundException(username));
+    public Person findById(Long personId) {
+        return this.personRepository.findById(personId).get();
+    }
+
+
+    @Override
+    public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
+
+        UserDetails details = this.personRepository.findByUsername(username).orElseThrow(() -> new UsernameNotFoundException(username));
+        return details;
+
     }
 }

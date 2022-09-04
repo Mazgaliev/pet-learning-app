@@ -7,56 +7,50 @@
     <title>Title</title>
 </head>
 <body>
-<div>
-    <div class="container">
-        <h1 class="text-center">Register Page</h1>
-        <div class="row">
-            <div class="col-6">
-                <label for="name"></label><input type="text" class="input-group"
-                                                 placeholder="Name" id="name">
+<form method="post" th:action="${'/register'}">
+    <div>
+        <div class="container">
+            <h1 class="text-center">Register Page</h1>
+            <div class="row">
+                <div class="col-6">
+                    <label for="name"></label><input name="name" type="text" class="input-group"
+                                                     placeholder="Name" id="name">
+                </div>
+                <div class="col-6">
+                    <label for="surname"></label><input name="surname" type="text" class="input-group"
+                                                        placeholder="Surname" id="surname">
+                </div>
             </div>
-            <div class="col-6">
-                <label for="surname"></label><input type="text" class="input-group"
-                                                    placeholder="Name" id="surname">
+            <div class="row">
+                <div class="col-4">
+                    <label for="phoneNumber"></label><input name="phoneNumber" id="phoneNumber" type="text" class="input-group"
+                                                            placeholder="07#/###/###">
+                </div>
             </div>
-        </div>
-        <div class="row">
-            <div class="col-12">
-                <label for="e-mail"></label> <input id="e-mail" type="email" class="input-group" placeholder="E-mail">
+            <div class="row">
+                <div class="col-12">
+                    <label for="username"></label> <input name="username" type="text" id="username" class="input-group"
+                                                          placeholder="Username">
+                </div>
             </div>
-        </div>
-        <div class="row">
-            <div class="col-4">
-                <label for="phoneNumber"></label><input id="phoneNumber" type="text" class="input-group"
-                                                        placeholder="07#/###/###">
+            <div class="row">
+                <div class="col-6">
+                    <label for="password"></label> <input name="password" type="password" id="password" class="input-group"
+                                                          placeholder="Password">
+                </div>
+                <div class="col-6">
+                    <label for="repeatPassword"></label> <input name="repeatPassword" type="password" id="repeatPassword" class="input-group"
+                                                                placeholder="Repeat Password">
+                </div>
             </div>
-            <div class="col-8">
-                <label for="favoritePet"></label> <input id="favoritePet" type="text" class="input-group"
-                                                         placeholder="Favorite Pet">
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-12">
-                <label for="username"></label> <input type="text" id="username" class="input-group"
-                                                      placeholder="Username">
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-6">
-                <label for="password"></label> <input type="password" id="password" class="input-group"
-                                                      placeholder="Password">
-            </div>
-            <div class="col-6">
-                <label for="repeatPassword"></label> <input type="text" id="repeatPassword" class="input-group"
-                                                            placeholder="Repeat Password">
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-12">
-                <a class="btn btn-success w-100" href="LoginPage.html" type="submit">Register</a>
+            <br>
+            <div class="row">
+                <div class="col-12">
+                    <button class="btn btn-success w-100" type="submit">Register</button>
+                </div>
             </div>
         </div>
     </div>
-</div>
+</form>
 </body>
 </html>

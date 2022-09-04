@@ -5,5 +5,35 @@
     <title>Title</title>
 </head>
 <body>
+<section id="header" class="jumbotron text-center">
+    <h1 class="display-3" th:text="${course.getAnimal().getName()}"></h1>
+    <form method="post" th:action="@{'/course/enroll/{id}' (id=${course.getId()})}">
+
+        <button class="btn btn-outlined-dark" th:if="${#request.getRemoteUser()!=null}">Enroll to
+            course
+        </button>
+    </form>
+</section>
+
+<div class="row">
+    <div class="col-md-4" th:each="lesson:${lessons}">
+        <div class="col-md text-center">
+            <div class="card">
+                <div class="card-header">
+                    <h3 th:text="${lesson.getLessonName()}"></h3>
+                </div>
+                <div class="card-body">
+                    <div class="card-text">
+                        <h5 th:text="${lesson.getDescription()}"></h5>
+                    </div>
+
+                    <a class="btn btn-outline-primary" th:if="${#request.getRemoteUser()!=null}"
+                       th:href="@{'/course/lesson/{id}'(id=${lesson.getId()})}"> View
+                        Lesson</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 </body>
 </html>

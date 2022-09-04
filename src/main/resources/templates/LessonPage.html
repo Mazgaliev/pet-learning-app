@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<section id="header" class="jumbotron text-center">
+    <h1 class="display-3" th:text="${lesson.getLessonName()}"></h1>
+    <p class="lead" th:text="${lesson.getDescription()}"></p>
+
+    <form method="GET" th:action="@{'/course/lesson/test'}">
+        <input th:value="${lesson.getId()}" name="lessonId" id="lessonId" hidden>
+
+        <button class="btn btn-outline-danger" type="submit"> Test Your knowledge</button>
+    </form>
+
+</section>
+</body>
+</html>

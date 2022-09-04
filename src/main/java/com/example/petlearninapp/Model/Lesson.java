@@ -12,7 +12,7 @@ public class Lesson {
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private Long id;
 
-    @OneToOne
+    @ManyToOne
     private Person creator;
 
     private String lessonName;
@@ -20,13 +20,13 @@ public class Lesson {
     private String Description;
 
     @OneToOne
-    private Animal animal;
+    private Test test;
 
-    public Lesson(String lessonName, String description, Animal animal, Person creator) {
+    public Lesson(String lessonName, String description, Person creator, Test test) {
         this.lessonName = lessonName;
         this.Description = description;
         this.creator = creator;
-        this.animal = animal;
+        this.test = test;
     }
 
     public Lesson() {
