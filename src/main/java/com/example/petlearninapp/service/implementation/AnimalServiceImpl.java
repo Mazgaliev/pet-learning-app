@@ -17,9 +17,9 @@ public class AnimalServiceImpl implements AnimalService {
     }
 
     @Override
-    public void createAnimal(String name, String description, List<String> images) {
+    public Animal createAnimal(String name, String description, List<String> images) {
 
-        this.animalRepository.save(new Animal(name, description, images));
+        return this.animalRepository.save(new Animal(name, description, images));
     }
 
     @Override

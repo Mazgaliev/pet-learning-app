@@ -19,10 +19,10 @@ public class PersonServiceImpl implements PersonService {
     }
 
     @Override
-    public void registerPerson(String name, String surname, String username, String password, String phoneNumber) {
+    public Person registerPerson(String name, String surname, String username, String password, String phoneNumber) {
         String encPw = this.passwordEncoder.encode(password);
 
-        this.personRepository.save(new Person(name, username, encPw, surname, phoneNumber));
+        return this.personRepository.save(new Person(name, username, encPw, surname, phoneNumber));
     }
 
     @Override

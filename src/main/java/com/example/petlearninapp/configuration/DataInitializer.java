@@ -1,18 +1,17 @@
 package com.example.petlearninapp.configuration;
 
-import com.example.petlearninapp.Model.Lesson;
-import com.example.petlearninapp.Model.Person;
-import com.example.petlearninapp.Model.Test;
+import com.example.petlearninapp.Model.*;
 import com.example.petlearninapp.repository.LessonRepository;
+import com.example.petlearninapp.repository.QuestionRepository;
+import com.example.petlearninapp.repository.TestRepository;
 import com.example.petlearninapp.service.AnimalService;
 import com.example.petlearninapp.service.CourseService;
 import com.example.petlearninapp.service.PersonService;
-import org.springframework.stereotype.Component;
 
-import javax.annotation.PostConstruct;
+import java.util.ArrayList;
 import java.util.List;
 
-@Component
+//@Component
 public class DataInitializer {
 
     private final CourseService courseService;
@@ -20,20 +19,30 @@ public class DataInitializer {
     private final PersonService personService;
 
     private final LessonRepository lessonRepository;
+    private final TestRepository testRepository;
 
-    public DataInitializer(CourseService courseService, AnimalService animalService, PersonService personService, LessonRepository lessonRepository) {
+    private final QuestionRepository questionRepository;
+
+    public DataInitializer(CourseService courseService, AnimalService animalService, PersonService personService, LessonRepository lessonRepository, TestRepository testRepository, QuestionRepository questionRepository) {
         this.courseService = courseService;
         this.animalService = animalService;
         this.personService = personService;
         this.lessonRepository = lessonRepository;
+        this.testRepository = testRepository;
+        this.questionRepository = questionRepository;
     }
 
-//    @PostConstruct
+//        @PostConstruct
     public void initData() {
-
-//        for (int i = 2; i < 5; i++) {
-//            this.courseService.createCourse("CourseName", "CourseDescription", Long.parseLong(i + ""), lessons);
-//        }
+        Animal a = this.animalService.createAnimal("name", "desc", new ArrayList<>());
+        Person p = this.personService.registerPerson("name", "surname", "username", "password", "phoneNumber");
+        List<Question> questions = List.of(new Question("q1", "desc", "answer", List.of("ans2", "ans3", "ans4")), new Question("q1", "desc", "answer", List.of("ans2", "ans3", "ans4")), new Question("q1", "desc", "answer", List.of("ans2", "ans3", "ans4")), new Question("q1", "desc", "answer", List.of("ans2", "ans3", "ans4")));
+        Test test = new Test(questions);
+        List<Lesson> lessons = List.of(new Lesson("lname", "ldescc", p, test), new Lesson("lname", "ldescc", p, test), new Lesson("lname", "ldescc", p, test));
+        this.questionRepository.saveAll(questions);
+        this.testRepository.save(test);
+        this.lessonRepository.saveAll(lessons);
+        this.courseService.createCourse("cname", "desc", a.getId(), lessons);
 
     }
 }
